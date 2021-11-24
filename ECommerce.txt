@@ -1,0 +1,13 @@
+Extensiones VS:
+Auto Rename Tag
+Bracket Pair Colorized 1
+ES7 React/Redux/GraphQL/React-Native snippets
+
+CREAR CUENTA EN commercejs(Minuto 37): 
+https://commercejs.com/
+Una vez credada en el .env cambiar la llave privada
+
+Consola:
+npm install
+
+npm install @material-ui/core @material-ui/icons @chec/commerce.js @stripe/react-stripe-js @stripe/stripe-js react-router-dom react-hook-form
