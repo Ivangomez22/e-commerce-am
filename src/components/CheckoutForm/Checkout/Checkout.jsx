@@ -15,8 +15,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [activeStep, setActiveStep] = useState(0);
     const [shippingData, setShippingData] = useState({});
+    const [isFinished, setIsFinished] = useState(false);
 
-    const classes = useStyles();   
+    const classes = useStyles();
+    const history = useHistory();
 
     useEffect(() => {
       const generateToken = async () => {
@@ -28,7 +30,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           setCheckoutToken(token);
 
         } catch (error) {
-          console.log(error);
+          // console.log(error);
+            history.pushState('/');
         }
       }
 
@@ -44,6 +47,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       nextStep();
   }
 
+  const timeout = () => {
+    setTimeout(() => {
+        setIsFinished(true)
+    }, 3000);
+  }
+
     let Confirmation = () => order.customer ? (
         <>
           <div>
@@ -56,6 +65,21 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <Typography variant="subtitle2">
                Order ref:  {order.customer_reference} 
             </Typography>
+
+          </div>
+          <br />
+
+          <Button component={Link} to="/" variant="outlined" type="button"> Back to Home </Button>    
+        </>
+    ) : isFinished ? (
+      <>
+          <div>
+            
+            <Typography variant="h5">
+               Thank you for your purchase 
+            </Typography>
+            
+            <Divider className={classes.divider} />
 
           </div>
           <br />
@@ -80,7 +104,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
-        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} />
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout} />
     
 
     return (
