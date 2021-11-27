@@ -1,8 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     root: {
-        maxWidth: '100%'
+        maxWidth: '100%',
+        // backgroundColor: theme.palette.grey[900],
     },
     media: {
         height: 0,

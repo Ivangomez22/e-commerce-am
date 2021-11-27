@@ -10,8 +10,8 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
 
     const EmptyCart = () => (
         <Typography variant="subtitle1"> 
-            You have no item in your shopping cart, start adding some!
-                <Link to="/" className={classes.link}> start adding some </Link>
+            No tienes articulos en tu carrito de compras!
+                <Link to="/" className={classes.link}> Empecemos por agregar algo </Link>
         </Typography>
     );
 
@@ -28,8 +28,8 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
             <div className={classes.cardDetails}>
                     <Typography variant="h4"> SubTotal: { cart.subtotal.formatted_with_symbol } </Typography>
                     <div>
-                        <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart} > Empty Cart </Button>
-                        <Button component={Link} to='/checkout' className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary" > Checkout </Button>
+                        <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart} > Vaciar Carrito </Button>
+                        <Button component={Link} to='/checkout' className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary" > Comprar </Button>
                     </div>
             </div>
         </>
@@ -40,7 +40,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     return (
         <Container>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3" gutterBottom > Your Shopping Cart</Typography>
+            <Typography className={classes.title} variant="h3" gutterBottom > Tu carrito de compras: </Typography>
             { !cart.line_items.length ? <EmptyCart /> : <FilledCart /> }
         </Container>
     )

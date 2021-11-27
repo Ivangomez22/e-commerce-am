@@ -57,13 +57,13 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         <>
           <div>
             <Typography variant="h5">
-               Thank you for your purchase, {order.customer.firstname} {order.customer.lastname} 
+               Gracias por tu compra, {order.customer.firstname} {order.customer.lastname} 
             </Typography>
             
             <Divider className={classes.divider} />
             
             <Typography variant="subtitle2">
-               Order ref:  {order.customer_reference} 
+               Referencia de compra:  {order.customer_reference} 
             </Typography>
 
           </div>
@@ -76,7 +76,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           <div>
             
             <Typography variant="h5">
-               Thank you for your purchase 
+               Gracias por tu compra! 
             </Typography>
             
             <Divider className={classes.divider} />
@@ -84,7 +84,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           </div>
           <br />
 
-          <Button component={Link} to="/" variant="outlined" type="button"> Back to Home </Button>    
+          <Button component={Link} to="/" variant="outlined" type="button"> Regresar al inicio </Button>    
         </>
     ) : (
       <div className={classes.spinner}>
@@ -98,7 +98,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
         <br />
 
-        <Button component={Link} to="/" variant="outlined" type="button"> Back to Home </Button>
+        <Button component={Link} to="/" variant="outlined" type="button"> Regresar al inicio </Button>
       </>
     }
 
@@ -113,7 +113,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           <div className={classes.toolbar} />
           <main className={classes.layout}>
             <Paper className={classes.paper}>
-              <Typography variant="h4" align="center">Checkout</Typography>
+              <Typography variant="h4" align="center"> Comprar </Typography>
               <Stepper activeStep={activeStep} className={classes.stepper}>
                 {steps.map((step) => (
                   <Step key={step}>
