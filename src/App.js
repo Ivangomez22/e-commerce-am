@@ -9,6 +9,9 @@ import { Products, Navbar, Cart, Checkout } from './components';
 //Navegación entre paginas
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+//monitoreo
+import RouteChangeTracker from './components/RouteChangeTracker'
+
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
@@ -74,6 +77,7 @@ const App = () => {
     return (
         <Router>
             <div>
+            <RouteChangeTracker /> 
                 <Navbar totalItems={cart.total_items} />
                     <Switch>
                         <Route exact path="/">
@@ -97,7 +101,8 @@ const App = () => {
                                 error = { errorMessage }
                             />
                         </Route>
-                    </Switch>                
+                    </Switch>  
+                                 
             </div>
         </Router>
     )
