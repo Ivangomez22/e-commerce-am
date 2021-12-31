@@ -10,6 +10,7 @@ import useStyles from './styles';
 
 // ];
 
+
 const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
 

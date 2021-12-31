@@ -10,13 +10,15 @@ import { Products, Navbar, Cart, Checkout } from './components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //monitoreo
-import RouteChangeTracker from './components/RouteChangeTracker'
+import RouteChangeTracker from './components/RouteChangeTracker';
+
 
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
+
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
@@ -101,9 +103,9 @@ const App = () => {
                                 error = { errorMessage }
                             />
                         </Route>
-                    </Switch>  
-                                 
+                    </Switch>                 
             </div>
+            
         </Router>
     )
 }

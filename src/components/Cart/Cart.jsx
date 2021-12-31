@@ -38,9 +38,9 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     if(!cart.line_items) return 'Loading...';
 
     return (
-        <Container>
+        <Container className={classes.content}>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3" gutterBottom > Tu carrito de compras: </Typography>
+            <Typography className={classes.title} variant="h3" gutterBottom> Tu carrito de compras: </Typography>
             { !cart.line_items.length ? <EmptyCart /> : <FilledCart /> }
         </Container>
     )
